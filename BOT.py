@@ -6,11 +6,20 @@ bot = telebot.TeleBot(api)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-	bot.send_message(message.chat.id,'Привет')
-@bot.message_handler(commands=['button'])
-def button_message(message):
-	markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
-	item1=types.KeyboardButton("Кнопка")
-  markup.add(item1)																																					
-  bot.send_message(message.chat.id,'Выберите что вам надо',reply_markup=markup)
+	bot.send_message(message.chat.id,'Привет это PILG-бот, ты можешь узнать обо мне с помощью комманды /podrobnee , для помощи используй /help, а так же можешь обратиться в поддержку - /podderjka')
+	
+@bot.message_handler(commands=['podderjka'])
+def start_message(message):
+    bot.send_message(message.6261355188, f'send - {message.text}')
+	bot.send_message(message.chat.id, f'поддержке отправленно сообщение - {message.text}')
+
+@bot.message_handler(commands=['podrobnee'])
+def start_message(message):
+	bot.send_message(message.chat.id,'text o bote')
+
+@bot.message_handler(commands=['help'])
+def start_message(message):
+	bot.send_message(message.chat.id,'help')
+
+
 bot.infinity_polling()
